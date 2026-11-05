@@ -72,6 +72,8 @@ section + section .inner{border-top:1px solid var(--line)}
 .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .proj{border:1px solid var(--line);border-radius:8px;padding:28px;display:flex;flex-direction:column;gap:14px;background:var(--bg)}
 .proj.feature{grid-column:1/-1}
+.projects > .proj{min-width:0}
+.pbi,.pbi-tabs,.pbi-frame{min-width:0;max-width:100%}
 .meta{font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .tag{font-size:12px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:4px}
 .tag.wip{color:var(--todo);background:#FBF1E4}
@@ -239,6 +241,22 @@ tr.best td{background:var(--accent-soft);font-weight:600}
 .pbi-card.title .pbi-card-lbl{font-size:16pt}
 .dt-node.root b{font-weight:400;color:#605E5C}
 
+.kuha-top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:start}
+.kuha-text{min-width:0;display:flex;flex-direction:column;gap:16px}
+.kuha-text > p{color:var(--muted)}
+.kuha-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0}
+.kuha-stats div{background:var(--soft);border-radius:6px;padding:14px 16px}
+.kuha-stats dt{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--accent);line-height:1.1;font-variant-numeric:tabular-nums}
+.kuha-stats dd{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.kuha-video{margin:0;display:flex;flex-direction:column;gap:8px;max-width:340px;width:100%;justify-self:end}
+.kuha-video video{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;background:#000;display:block}
+.kuha-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.kuha-gallery figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kuha-gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;display:block;background:var(--soft)}
+.kuha-video figcaption,.kuha-gallery figcaption{font-size:13px;color:var(--muted)}
+.kuha-how{display:flex;flex-direction:column;gap:8px}
+.kuha-how ul{margin:0}
+@media (max-width:760px){.kuha-top{grid-template-columns:1fr}.kuha-video{justify-self:start;max-width:100%}.kuha-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.kuha-stats dt{font-size:24px}}
 /* Experience */
 .roles{display:flex;flex-direction:column}
 .role{display:grid;grid-template-columns:180px 1fr;gap:24px;padding-block:22px;border-bottom:1px solid var(--line)}
@@ -537,18 +555,40 @@ auc(roc(as.numeric(as.character(test_data$Churned)), rf_prob))</code></pre>
         </dl>
       </article>
 
-      <article class="proj feature" data-tags="venture">
-        <div class="meta"><span class="tag">Venture</span><span>Sept 2025 – present</span></div>
-        <h3>Kuha Studios</h3>
-        <p>Founded and run an enclosed vintage photobooth company serving weddings, brand activations, private parties and public events across Calgary and the Rockies. I handle pricing, scheduling, hiring and the lead pipeline.</p>
-        <a class="site-link" href="https://www.kuhastudios.com/" target="_blank" rel="noopener">Visit kuhastudios.com <span aria-hidden="true">&#8599;</span></a>
-        <ul>
-          <li>Hired and trained a team of 15 event staff</li>
-          <li>Built the Squarespace website and inquiry form that captures event leads</li>
-          <li>Booked 25 events since launching in September 2025</li>
-          <li>Vendor at the Calgary Stampede</li>
-        </ul>
-        <dl class="spec"><dt>Skills</dt><dd>Operations, hiring and training, pricing, lead capture</dd></dl>
+      <article class="proj feature kuha" data-tags="venture">
+        <div class="meta"><span class="tag">Venture</span><span>Founder &amp; Owner · Sept 2025 – present</span></div>
+        <div class="kuha-top">
+          <div class="kuha-text">
+            <h3>Kuha Studios</h3>
+            <p>I founded and self-funded an enclosed vintage photobooth company, building the booth and launching operations in one week. Kuha serves weddings, brand activations, private parties and public events across Calgary and the Rockies.</p>
+            <dl class="kuha-stats">
+              <div><dt>25</dt><dd>events booked since launch</dd></div>
+              <div><dt>15</dt><dd>event staff hired and trained</dd></div>
+              <div><dt>50%</dt><dd>of bookings from partner channels</dd></div>
+              <div><dt>3,000</dt><dd>social followers, grown from zero</dd></div>
+            </dl>
+            <a class="site-link" href="https://www.kuhastudios.com/" target="_blank" rel="noopener">Visit kuhastudios.com <span aria-hidden="true">&#8599;</span></a>
+          </div>
+          <figure class="kuha-video">
+            <video src="kuha/booth.mp4" poster="kuha/booth-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="Video of guests lining up for the Kuha Studios photobooth at the Calgary Stampede"></video>
+            <figcaption>The line-up for the booth at the Calgary Stampede</figcaption>
+          </figure>
+        </div>
+        <div class="kuha-gallery">
+          <figure><img src="kuha/kuha-ellisdon.jpg" alt="The Kuha Studios booth set up at EllisDon's Calgary office for the company's 75th anniversary" loading="lazy"><figcaption>EllisDon's 75th anniversary, Calgary office</figcaption></figure>
+          <figure><img src="kuha/kuha-wedding.jpg" alt="Newlyweds inside the Kuha Studios booth at their wedding" loading="lazy"><figcaption>Wedding reception</figcaption></figure>
+          <figure><img src="kuha/kuha-market.jpg" alt="Crowd around the Kuha Studios booth at a busy holiday market" loading="lazy"><figcaption>Holiday market, day 3</figcaption></figure>
+        </div>
+        <div class="kuha-how">
+          <h4 class="sub">How I use data to run it</h4>
+          <ul>
+            <li><strong>Pricing:</strong> set package prices from an analysis of operating costs and market demand to hit target margins.</li>
+            <li><strong>Financial tracking:</strong> keep complete records of revenue, fixed expenses and variable costs, and wrote a business plan covering financials and operating goals.</li>
+            <li><strong>Growth through partners:</strong> built partnerships with the Calgary Stampede, Fenyk Coffee and Seconds Collective, which now bring in half of all bookings.</li>
+            <li><strong>Operations:</strong> hired and trained 15 staff to run events to a consistent standard, and built the Squarespace site and inquiry form that capture leads.</li>
+          </ul>
+        </div>
+        <dl class="spec"><dt>Skills</dt><dd>Pricing analysis, financial tracking, partnerships, operations, hiring and training</dd></dl>
       </article>
 
       <article class="proj" data-tags="analytics">
